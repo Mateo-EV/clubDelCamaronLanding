@@ -1,0 +1,14 @@
+---
+import ImageLogo from "@/assets/images/logo.png"
+import type { ComponentProps } from "astro/types"
+import { Image } from "astro:assets"
+
+type Props = Pick<
+  ComponentProps<typeof Image>,
+  "class" | "class:list" | "loading" | "style" | "width" | "height"
+>
+
+const props = Astro.props
+---
+
+<Image src={ImageLogo} alt="Logo - Club del Camarón " {...props} />
