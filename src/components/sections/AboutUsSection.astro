@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets"
+import RestaurantPlaceImage from "@/assets/images/about-us-place.jpg"
+---
+
+<section id="#nosotros" class="overflow-hidden">
+  <div class="flex py-40 container">
+    <div class="flex-1">
+      <h2>Nosotros</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
+        doloremque distinctio, molestiae a commodi voluptatem repudiandae sunt
+        ipsa, aut quos fugit facilis fuga eos nihil nemo adipisci? Sunt, officia
+        voluptatem.
+      </p>
+    </div>
+    <div class="flex-1">Imagen</div>
+  </div>
+  <Image
+    src={RestaurantPlaceImage}
+    alt="Restaurante el Club del Camarón"
+    class="w-full object-center h-96 object-cover lg:relative lg:left-52"
+  />
+</section>

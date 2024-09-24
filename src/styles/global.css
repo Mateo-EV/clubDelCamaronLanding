@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --primary-hue: 31;          /* Matiz (Hue) */
+    --primary-saturation: 97%;  /* Saturación */
+    --primary-lightness: 72%; 
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Color primario basado en tu color */
+    --primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
+    --primary-foreground: 0 0% 10%;
+
+    /* Colores secundarios y complementarios */
+    --secondary: var(--primary-hue) 50% 90%;
+    --secondary-foreground: 0 0% 30%;
+
+    --muted: var(--primary-hue) 20% 95%;
+    --muted-foreground: 0 0% 50%;
+
+    --accent: calc((var(--primary-hue) + 180) % 360) var(--primary-saturation) var(--primary-lightness);
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) - 10%);
+
+    /* Colores para gráficas basados en tonos complementarios */
+    --chart-1: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
+    --chart-2: calc((var(--primary-hue) + 30) % 360) var(--primary-saturation) var(--primary-lightness);
+    --chart-3: calc((var(--primary-hue) + 60) % 360) var(--primary-saturation) var(--primary-lightness);
+    --chart-4: calc((var(--primary-hue) + 90) % 360) var(--primary-saturation) var(--primary-lightness);
+    --chart-5: calc((var(--primary-hue) + 120) % 360) var(--primary-saturation) var(--primary-lightness);
+
+    --radius: 0.5rem;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

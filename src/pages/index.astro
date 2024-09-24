@@ -2,34 +2,38 @@
 import { Image } from "astro:assets"
 import Layout from "../layouts/Layout.astro"
 import MainPlate from "@/assets/images/main-plate.jpg"
-import Button from "@/components/Button.astro"
 import Logo from "@/components/Logo.astro"
+import { Button } from "@/components/ui/button"
+import AboutUsSection from "@/components/sections/AboutUsSection.astro"
+import RestaurantLetterSection from "@/components/sections/RestaurantLetterSection.astro"
 ---
 
 <Layout>
   <section class="h-screen relative">
     <div class="h-full absolute inset-0 overflow-hidden bg-black -z-10">
       <Image
-        class="size-full object-cover opacity-50"
+        class="size-full object-cover opacity-30"
         loading="eager"
         src={MainPlate}
         alt="Plato del club del camarón"
       />
     </div>
     <div
-      class="flex flex-col container justify-center items-center gap-8 pt-40"
+      class="flex flex-col container justify-center items-center gap-8 pt-40 lg:gap-32 lg:pt-64"
     >
-      <div class="flex flex-col justify-center items-center gap-8 md:flex-row">
-        <Logo class="size-48" />
-        <h1 class="text-white text-4xl font-mochiy leading-[3rem] text-center">
-          <span class="text-orange-300">Especialistas</span> en platos criollos a
-          base de <span class="text-orange-300">Camarón</span>
+      <div class="flex flex-col justify-center items-center gap-8 lg:flex-row">
+        <Logo class="size-48 lg:hidden" />
+        <h1
+          class="text-white text-4xl lg:text-7xl font-mochiy leading-[3rem] lg:leading-[6rem] text-center"
+        >
+          <span class="text-primary">Especialistas</span> en platos criollos a base
+          de <span class="text-primary">Camarón</span>
         </h1>
       </div>
-      <Button class="text-base font-bold rounded-xl w-fit px-8"
-        >RESERVA AQUÍ</Button
-      >
+      <Button size="lg" className="font-bold">RESERVA AQUÍ</Button>
     </div>
   </section>
-  <section>sdas</section>
+  <AboutUsSection />
+  <RestaurantLetterSection />
+  a
 </Layout>
