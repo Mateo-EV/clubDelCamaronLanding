@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 
 const LINES = [
   {
@@ -41,26 +42,37 @@ const MENU_ITEMS = [
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const navItems = useMemo(
+    () =>
+      MENU_ITEMS.map(({ href, name }) => (
+        <li key={href} className="text-primary">
+          <a href={href}>{name}</a>
+        </li>
+      )),
+    []
+  )
+
   return (
     <>
-      <button
-        className="p-4 relative lg:hidden"
-        onClick={() => setIsOpen(p => !p)}
-      >
-        {LINES.map(({ open, close }, i) => (
-          <span
-            key={i}
-            className={`bg-primary h-1 rounded-md block absolute top-1/2 left-1/2 -translate-x-1/2 transition-[transform_width] ${isOpen ? open : close}`}
-          />
-        ))}
-      </button>
-      <ul className="lg:flex items-center hidden gap-10">
-        {MENU_ITEMS.map(({ href, name }) => (
-          <li key={href} className="text-primary font-bold">
-            <a href={href}>{name}</a>
-          </li>
-        ))}
-      </ul>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <button
+            className="p-4 relative lg:hidden"
+            onClick={() => setIsOpen(p => !p)}
+          >
+            {LINES.map(({ open, close }, i) => (
+              <span
+                key={i}
+                className={`bg-primary h-1 rounded-md block absolute top-1/2 left-1/2 -translate-x-1/2 transition-[transform_width] ${isOpen ? open : close}`}
+              />
+            ))}
+          </button>
+        </SheetTrigger>
+        <SheetContent side="left">
+          <ul className="flex flex-col gap-8 [&>li]:text-xl">{navItems}</ul>
+        </SheetContent>
+      </Sheet>
+      <ul className="lg:flex items-center hidden gap-10">{navItems}</ul>
     </>
   )
 }

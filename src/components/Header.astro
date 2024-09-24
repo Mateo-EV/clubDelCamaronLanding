@@ -3,8 +3,8 @@ import Logo from "@/components/Logo.astro"
 import { Navigation } from "@/components/Navigation"
 ---
 
-<header class="left-0 right-0 fixed top-0 z-10">
-  <div class="container py-4 lg:py-8">
+<header class="left-0 right-0 fixed top-0 z-10 transition-colors">
+  <div class="container py-4 lg:py-6">
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-4">
         <Logo class="size-10 hidden lg:block" />
@@ -16,3 +16,16 @@ import { Navigation } from "@/components/Navigation"
     </div>
   </div>
 </header>
+
+<script>
+  const header = document.querySelector("header")!
+
+  window.addEventListener("scroll", () => {
+    const hasScrolled = window.scrollY >= 100
+    if (hasScrolled) {
+      header.classList.add("bg-primary-foreground")
+    } else {
+      header.classList.remove("bg-primary-foreground")
+    }
+  })
+</script>
