@@ -11,28 +11,32 @@ import ContactUsSection from "@/components/sections/ContactUsSection.astro"
 ---
 
 <Layout>
-  <section class="h-screen relative">
+  <section class="h-screen relative overflow-hidden">
     <div class="h-full absolute inset-0 overflow-hidden bg-black -z-10">
-      <Image
-        class="size-full object-cover opacity-30"
-        loading="eager"
-        src={MainPlate}
-        alt="Plato del club del camarón"
-      />
+      <div
+        class="size-full bg-fixed"
+        style={`background-image: url("${MainPlate.src}");`}
+        id="background-main-image"
+      >
+      </div>
     </div>
     <div
       class="flex flex-col container justify-center items-center gap-8 pt-40 lg:gap-32 lg:pt-64"
     >
       <div class="flex flex-col justify-center items-center gap-8 lg:flex-row">
-        <Logo class="size-48 lg:hidden" />
+        <Logo class="size-48 lg:hidden" loading="eager" />
         <h1
-          class="text-white text-4xl lg:text-7xl font-mochiy leading-[3rem] lg:leading-[6rem] text-center"
+          class="text-white text-4xl lg:text-7xl font-mochiy leading-[3rem] lg:leading-[6rem] text-center animate-fade-in opacity-0 fill-mode-forwards duration-500 delay-300"
         >
           <span class="text-primary">Especialistas</span> en platos criollos a base
           de <span class="text-primary">Camarón</span>
         </h1>
       </div>
-      <Button size="lg" className="font-bold">RESERVA AQUÍ</Button>
+      <Button
+        size="lg"
+        className="font-bold animate-fade-in opacity-0 delay-500 duration-500 fill-mode-forwards"
+        >RESERVA AQUÍ</Button
+      >
     </div>
   </section>
   <AboutUsSection />
@@ -40,3 +44,20 @@ import ContactUsSection from "@/components/sections/ContactUsSection.astro"
   <BookingSection />
   <ContactUsSection />
 </Layout>
+
+<style>
+  #background-main-image {
+    animation: fadeInEspecialImage 300ms ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInEspecialImage {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 0.3;
+    }
+  }
+</style>

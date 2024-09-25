@@ -25,7 +25,7 @@
     --muted: var(--primary-hue) 20% 95%;
     --muted-foreground: 0 0% 50%;
 
-    --accent: calc((var(--primary-hue) + 180) % 360) var(--primary-saturation) var(--primary-lightness);
+    --accent: 240 4.8% 95.9%;
     --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84% 60%;
@@ -49,6 +49,11 @@
   * {
     @apply border-border;
   }
+
+  html {
+    /* scroll-behavior: smooth */
+  }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -2,6 +2,7 @@
 import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
 import "@/styles/global.css"
+import "aos/dist/aos.css"
 import "@fontsource/mochiy-pop-one"
 
 import { ClientRouter } from "astro:transitions"
@@ -31,3 +32,12 @@ const { title } = Astro.props
     <Footer />
   </body>
 </html>
+
+<script>
+  import AOS from "aos"
+
+  AOS.init({
+    duration: 300,
+    easing: "ease-in-out"
+  })
+</script>

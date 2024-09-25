@@ -1,24 +1,48 @@
 ---
 import { Image } from "astro:assets"
 import RestaurantPlaceImage from "@/assets/images/about-us-place.jpg"
+import PlateImage from "@/assets/images/about-us-plate.jpg"
+import SectionTitle from "../SectionTitle.astro"
 ---
 
-<section id="#nosotros" class="overflow-hidden">
-  <div class="flex py-40 container">
+<section id="nosotros" class="overflow-hidden">
+  <div class="flex py-40 container flex-col lg:flex-row gap-8 lg:gap-0">
     <div class="flex-1">
-      <h2>Nosotros</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
-        doloremque distinctio, molestiae a commodi voluptatem repudiandae sunt
-        ipsa, aut quos fugit facilis fuga eos nihil nemo adipisci? Sunt, officia
-        voluptatem.
-      </p>
+      <SectionTitle>Nosotros</SectionTitle>
+      <div
+        class="mt-8 space-y-6 text-xl text-muted-foreground"
+        data-aos="fade-down"
+      >
+        <p>
+          En el Club del Camarón nos especializamos en la preparación de
+          exquisitos platos a base de camarón, ceviches y comida criolla.
+        </p>
+        <p>
+          Nuestro restaurante ofrece un ambiente acogedor con atención
+          personalizada, donde la frescura y calidad de los ingredientes se
+          reflejan en cada bocado.
+        </p>
+        <p>
+          Ven a disfrutar de nuestros destacados platos como el arroz con
+          camarón y la trucha en salsa de camarón, acompañados de los mejores
+          cócteles, en un lugar donde innovar y mejorar es nuestro estilo​.
+        </p>
+      </div>
     </div>
-    <div class="flex-1">Imagen</div>
+    <div class="flex-1 flex justify-center items-center">
+      <Image
+        src={PlateImage}
+        alt="Chupe de Camarón"
+        width={500}
+        class="rounded-md"
+        data-aos="zoom-in"
+      />
+    </div>
   </div>
   <Image
     src={RestaurantPlaceImage}
     alt="Restaurante el Club del Camarón"
     class="w-full object-center h-96 object-cover lg:relative lg:left-52"
+    data-aos="fade-left"
   />
 </section>

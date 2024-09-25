@@ -1,26 +1,17 @@
 ---
-import { Button } from "../ui/button"
-
-const RESTAURANTE_LETTER_CATEGORIES = [
-  "Especialidades",
-  "Platos Criollos",
-  "Menu Infantil",
-  "Bebidas",
-  "Cocktails"
-]
+import { cn } from "@/lib/utils"
+import SectionTitle from "../SectionTitle.astro"
+import { Button, buttonVariants } from "../ui/button"
+import LettersOptions from "@/components/client/LettersOptions"
 ---
 
-<section id="carta" class="container py-40 space-y-12">
-  <h2 class="text-center">Carta</h2>
-  <ul class="flex w-full">
-    {
-      RESTAURANTE_LETTER_CATEGORIES.map(category => (
-        <li class="flex-1 text-center">{category}</li>
-      ))
-    }
-  </ul>
-  <Button variant="secondary" className="block mx-auto"
-    >CARTA PRINCIPAL (PDF)</Button
+<section id="carta" class="container pt-40 space-y-12">
+  <SectionTitle class="text-center">Carta</SectionTitle>
+  <LettersOptions client:visible />
+  <a
+    class={cn(buttonVariants(), "block mx-auto w-fit")}
+    href="/carta-oficial.pdf"
+    target="_blank">CARTA PRINCIPAL (PDF)</a
   >
   <hr />
 </section>
