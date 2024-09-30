@@ -62,7 +62,9 @@ export const Navigation = () => {
       >
         {MENU_ITEMS.map(({ href, name }) => (
           <li key={href} className="text-primary font-semibold text-xl">
-            <a href={href}>{name}</a>
+            <a href={href} onClick={() => setIsOpen(false)}>
+              {name}
+            </a>
           </li>
         ))}
       </ul>

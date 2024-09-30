@@ -1,17 +1,46 @@
 ---
+import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react"
 import SectionTitle from "../SectionTitle.astro"
 ---
 
 <section id="contacto" class="container py-40 space-y-12">
   <SectionTitle>Contacto</SectionTitle>
-  <div class="flex">
-    <div class="flex-1">
-      Estamos ubicados en los jardines del Museo Larco y el acceso al
-      restaurante es libre, previa reserva.
+  <div class="flex gap-6 flex-col md:flex-row">
+    <div class="flex-1 text-xl space-y-6" data-aos="fade-down">
+      <p>
+        Estamos ubicados en Calle Cuzco 190, Sachaca, Arequipa, a espaldas del
+        estadio.
+      </p>
+      <p>
+        Si tienes preguntas o comentarios, no dudes en comunicarte con nosotros.
+      </p>
+      <p class="flex items-center gap-2">
+        <MapPinIcon className="size-4" /> Calle Cuzco 190, Sachaca, Arequipa
+      </p>
+      <p class="flex items-center gap-2">
+        <PhoneIcon className="size-4" /> +51 973 079 806
+      </p>
+      <p class="flex items-center gap-2">
+        <MailIcon className="size-4" /> informes@elclubdelcamaron.com
+      </p>
     </div>
-    <div class="flex-1 border">Horario de Atención</div>
+    <div class="flex-1 border p-6" data-aos="zoom-in">
+      <h3 class="text-3xl mb-6">Horario de Atención</h3>
+      <div class="text-xl space-y-6">
+        <p>Abrimos de martes a domingo de 9:00 am a 5:00 pm.</p>
+        <p>
+          Te esperamos en nuestro local ubicado en Calle Cuzco 190, Sachaca,
+          Arequipa.
+        </p>
+        <p>
+          Los feriados pueden estar sujetos a modificaciones, así que te
+          recomendamos consultar la disponibilidad de mesas mediante nuestro
+          WhatsApp al +51 973 079 806​
+        </p>
+      </div>
+    </div>
   </div>
-  <div>
+  <div data-aos="fade-down">
     <iframe
       loading="lazy"
       class="w-full h-80"
