@@ -19,6 +19,7 @@ import { Navigation } from "@/components/client/Navigation"
 
 <script>
   window.addEventListener("scroll", () => {
+    if (window.location.pathname !== "/") return
     const header = document.querySelector("header")!
 
     const hasScrolled = window.scrollY > 100
@@ -29,4 +30,18 @@ import { Navigation } from "@/components/client/Navigation"
       header.classList.remove("bg-primary-foreground")
     }
   })
+
+  function cambiarFondo() {
+    const header = document.querySelector("header")!
+
+    if (window.location.pathname !== "/") {
+      header.classList.add("bg-primary-foreground")
+    } else {
+      header.classList.remove("bg-primary-foreground")
+    }
+  }
+
+  cambiarFondo()
+
+  window.addEventListener("popstate", cambiarFondo)
 </script>

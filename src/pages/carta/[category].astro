@@ -1,0 +1,68 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import type { GetStaticPaths } from "astro"
+import {
+  BabyIcon,
+  ChefHatIcon,
+  GlassWaterIcon,
+  MartiniIcon,
+  UtensilsCrossedIcon
+} from "lucide-react"
+export const getStaticPaths = (() => {
+  return [
+    { params: { category: "especialidades" } },
+    { params: { category: "platos-criollos" } },
+    { params: { category: "menu-infantil" } },
+    { params: { category: "bebidas" } },
+    { params: { category: "cocktails" } }
+  ]
+}) satisfies GetStaticPaths
+
+const { category } = Astro.params
+
+const data = [
+  {
+    href: "especialidades",
+    name: "Especialidades",
+    icon: ChefHatIcon
+  },
+  {
+    href: "platos-criollos",
+    name: "Platos Criollos",
+    icon: UtensilsCrossedIcon
+  },
+  {
+    href: "menu-infantil",
+    name: "Menu Infantil",
+    icon: BabyIcon
+  },
+  {
+    href: "bebidas",
+    name: "Bebidas",
+    icon: GlassWaterIcon
+  },
+  {
+    href: "cocktails",
+    name: "Cocktails",
+    icon: MartiniIcon
+  }
+] as const
+
+const { name, icon: Icon } = data.find(data => data.href === category)!
+---
+
+<Layout>
+  <section class="my-36 flex flex-col items-center justify-between">
+    <div
+      transition:name={name}
+      class="aspect-square flex justify-center p-10 items-center bg-secondary rounded-full shadow-md"
+    >
+      <Icon className="size-48" />
+    </div>
+    <h1
+      class="text-4xl lg:text-7xl font-mochiy leading-[3rem] lg:leading-[6rem] text-center animate-fade-in opacity-0 fill-mode-forwards duration-500 delay-300"
+    >
+      {name}
+    </h1>
+  </section>
+</Layout>

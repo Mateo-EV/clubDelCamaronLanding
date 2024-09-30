@@ -40,4 +40,12 @@ const { title } = Astro.props
     duration: 300,
     easing: "ease-in-out"
   })
+
+  function start() {
+    AOS.refresh()
+  }
+
+  window.addEventListener("popstate", () => {
+    start()
+  })
 </script>

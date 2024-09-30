@@ -83,6 +83,7 @@ export default function LettersOptions() {
               onMouseOut={() => {
                 startChangeAnimation()
               }}
+              style={{ viewTransitionName: name }}
             >
               <div
                 className={cn(
