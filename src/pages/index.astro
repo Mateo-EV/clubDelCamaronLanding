@@ -1,12 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro"
 import MainPlate from "@/assets/images/main-plate.jpg"
 import Logo from "@/components/Logo.astro"
-import { Button, buttonVariants } from "@/components/ui/button"
 import AboutUsSection from "@/components/sections/AboutUsSection.astro"
-import RestaurantLetterSection from "@/components/sections/RestaurantLetterSection.astro"
 import BookingSection from "@/components/sections/BookingSection.astro"
 import ContactUsSection from "@/components/sections/ContactUsSection.astro"
+import RestaurantLetterSection from "@/components/sections/RestaurantLetterSection.astro"
+import { buttonVariants } from "@/components/ui/button"
+import Layout from "../layouts/Layout.astro"
+
+export const prerender = true
 ---
 
 <Layout>
