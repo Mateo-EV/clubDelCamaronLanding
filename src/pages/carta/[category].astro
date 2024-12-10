@@ -559,13 +559,17 @@ export const prerender = true
           ({ nombre, descripcion, imagen, ingredientes, notas, precio }) => (
             <div class="menu-card bg-white rounded-lg shadow-lg overflow-hidden">
               <div class="menu-image-container">
-                <Image
-                  src={imagen}
-                  alt={nombre}
-                  class="menu-image"
-                  width={400}
-                  height={400}
-                />
+                {typeof imagen === "string" ? (
+                  <Image
+                    src={imagen}
+                    alt={nombre}
+                    class="menu-image"
+                    width={400}
+                    height={400}
+                  />
+                ) : (
+                  <Image src={imagen} alt={nombre} class="menu-image" />
+                )}
               </div>
               <div class="p-4 flex-1 space-y-3">
                 <h3 class="text-xl font-bold text-black">{nombre}</h3>
