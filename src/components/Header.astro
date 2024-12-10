@@ -17,10 +17,10 @@ import { Navigation } from "@/components/client/Navigation"
   </div>
 </header>
 
-<script>
+<script is:inline data-astro-rerun>
   window.addEventListener("scroll", () => {
     if (window.location.pathname !== "/") return
-    const header = document.querySelector("header")!
+    const header = document.querySelector("header")
 
     const hasScrolled = window.scrollY > 100
 
@@ -32,7 +32,7 @@ import { Navigation } from "@/components/client/Navigation"
   })
 
   function cambiarFondo() {
-    const header = document.querySelector("header")!
+    const header = document.querySelector("header")
 
     if (window.location.pathname !== "/") {
       header.classList.add("bg-primary-foreground")
@@ -42,6 +42,4 @@ import { Navigation } from "@/components/client/Navigation"
   }
 
   cambiarFondo()
-
-  window.addEventListener("popstate", cambiarFondo)
 </script>

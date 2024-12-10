@@ -22,19 +22,19 @@ const MENU_ITEMS = [
     name: "Inicio"
   },
   {
-    href: "#nosotros",
+    href: "/#nosotros",
     name: "Nosotros"
   },
   {
-    href: "#carta",
+    href: "/#carta",
     name: "Carta"
   },
   {
-    href: "#reservas",
+    href: "/#reservas",
     name: "Reservas"
   },
   {
-    href: "#contacto",
+    href: "/#contacto",
     name: "Contáctanos"
   }
 ]

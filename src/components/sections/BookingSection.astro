@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets"
 import SectionTitle from "../SectionTitle.astro"
-import { Button } from "../ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import BookResturantImage from "@/assets/images/booking.jpg"
 ---
 
@@ -32,7 +32,13 @@ import BookResturantImage from "@/assets/images/booking.jpg"
         La tolerancia es de 15 minutos y la duración de la reserva es de 120
         minutos.
       </p>
-      <Button size="lg">Reservar Ahora</Button>
+      <a
+        class={buttonVariants({
+          size: "lg"
+        })}
+        href="/reserva"
+        >Reserva Ahora
+      </a>
     </div>
   </div>
   <hr />

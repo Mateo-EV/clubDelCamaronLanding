@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import type { GetStaticPaths } from "astro"
+import Image from "astro/components/Image.astro"
 import {
   BabyIcon,
   ChefHatIcon,
@@ -8,6 +9,9 @@ import {
   MartiniIcon,
   UtensilsCrossedIcon
 } from "lucide-react"
+import ChicharronPollo from "@/assets/images/chicharronpolloyhelado.webp"
+import PescadoChicharronmaspescado from "@/assets/images/pescadochicharronmaspescado.webp"
+
 export const getStaticPaths = (() => {
   return [
     { params: { category: "especialidades" } },
@@ -24,37 +28,518 @@ const data = [
   {
     href: "especialidades",
     name: "Especialidades",
-    icon: ChefHatIcon
+    icon: ChefHatIcon,
+    content: [
+      {
+        nombre: "Chupe de Camarón",
+        precio: 56.0,
+        descripcion: "Delicioso chupe con camarón y vegetales frescos.",
+        notas: "Incluye queso, leche y especias.",
+        ingredientes: ["Camarón grande", "Zapallo", "Choclo", "Habas", "Papas"],
+        imagen: "https://live.staticflickr.com/3256/2772479623_d66e8af04b_c.jpg"
+      },
+      {
+        nombre: "Explosión de Colitas",
+        precio: 58.0,
+        descripcion:
+          "Colitas de camarón apanadas acompañadas de papas y ensalada.",
+        notas: "Un plato abundante y sabroso.",
+        ingredientes: ["Colitas de camarón", "Papas fritas", "Ensalada fresca"],
+        imagen:
+          "https://scontent.fpio1-1.fna.fbcdn.net/v/t39.30808-6/286371629_2402896396517259_5829113434599464903_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFVRSDUXdSJnDUDhjVvEb34L33xyhDzdj0vffHKEPN2PV83Z2pHeTpcJ3onuMdfobFkKDPwdXvu-6RQL_W8xy8M&_nc_ohc=UbKWKLN11DQQ7kNvgFu1GzH&_nc_zt=23&_nc_ht=scontent.fpio1-1.fna&_nc_gid=AOJs4k_AfZ4agQkfRtLkxJ4&oh=00_AYAOQQaOJ8AwM0YNL8TvXlkUqYJj0OqRJft605Zrp-KqWA&oe=675D8486"
+      },
+      {
+        nombre: "Crocante de Camarón",
+        precio: 57.0,
+        descripcion: "Camarones fritos con papas y ensalada.",
+        notas: "Textura crujiente y sabor intenso.",
+        ingredientes: ["Camarones medianos", "Papas fritas", "Ensalada fresca"],
+        imagen:
+          "https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/61dc4298b108593d5a5f240febf59066.jpg"
+      },
+      {
+        nombre: "Cauche de Camarón de la Casa",
+        precio: 58.0,
+        descripcion: "Tortilla de camarón en una deliciosa crema.",
+        notas: "Receta tradicional de la casa.",
+        ingredientes: ["Colitas de camarón", "Queso", "Leche"],
+        imagen:
+          "https://comidasperuanas.net/wp-content/uploads/2023/11/Receta-de-Cauche-de-Camarones.jpg"
+      },
+      {
+        nombre: "Tallarin de Camarón",
+        precio: 57.0,
+        descripcion: "Tallarines con camarón y un toque de coral.",
+        notas: "Un plato clásico con sabor único.",
+        ingredientes: [
+          "Tallarines",
+          "Colitas de camarón",
+          "Cebollita",
+          "Coral"
+        ],
+        imagen:
+          "https://cdn.colombia.com/gastronomia/2011/08/24/tallarines-con-camarones-3682-1.jpg"
+      },
+      {
+        nombre: "Ceviche de Camarón",
+        precio: 58.0,
+        descripcion: "Ceviche con colitas de camarón frescas.",
+        notas: "Un clásico de la cocina marina.",
+        ingredientes: [
+          "Colitas de camarón",
+          "Cebolla",
+          "Limón",
+          "Papa",
+          "Camote"
+        ],
+        imagen:
+          "https://mandolina.co/wp-content/uploads/2024/08/ceviche-de-camarones-1200x900.png"
+      },
+      {
+        nombre: "Chaufa de Camarón",
+        precio: 58.0,
+        descripcion: "Arroz chaufa con camarones y especias.",
+        notas: "Perfecto para los amantes del arroz.",
+        ingredientes: [
+          "Arroz",
+          "Colitas de camarón",
+          "Cebolla china",
+          "Tocino"
+        ],
+        imagen:
+          "https://intiraymirestaurant.com/wp-content/uploads/2020/09/Arroz-Chaufa-de-Camarones.png"
+      },
+      {
+        nombre: "Arroz de Camarón",
+        precio: 56.0,
+        descripcion: "Arroz cremoso con camarones y vegetales.",
+        notas: "Sabor suave y delicioso.",
+        ingredientes: ["Arroz", "Camarones medianos", "Choclo", "Pimiento"],
+        imagen:
+          "https://www.tqma.com.ec/images/com_yoorecipe/banner_superior/990_1.jpg"
+      },
+      {
+        nombre: "Tortilla de Camarón",
+        precio: 58.0,
+        descripcion: "Tortilla de camarón acompañada de papas y ensalada.",
+        notas: "Ideal como plato fuerte.",
+        ingredientes: ["Colitas de camarón", "Huevo", "Papas", "Ensalada"],
+        imagen: "https://i.ytimg.com/vi/bG6iMLxS6Oo/maxresdefault.jpg"
+      },
+      {
+        nombre: "Sudado de Camarón",
+        precio: 56.0,
+        descripcion: "Camarones sudados con tomate y cebolla.",
+        notas: "Acompañado de arroz.",
+        ingredientes: ["Camarón mediano", "Tomate", "Cebolla", "Papa"],
+        imagen:
+          "https://www.paulinacocina.net/wp-content/uploads/2024/03/chupe-de-camaron-Paulina-Cocina-Recetas-Cocina-Recetas-1-1722430347.jpg"
+      },
+      {
+        nombre: "Moqueguano de Camarón",
+        precio: 57.0,
+        descripcion: "Camarones cocinados al estilo Moqueguano.",
+        notas: "Un plato tradicional del sur del Perú.",
+        ingredientes: ["Camarón mediano", "Choclo", "Habas", "Huacatay"],
+        imagen:
+          "https://patasca.net/wp-content/uploads/2021/10/moqueguano-de-camarones.jpg"
+      }
+    ]
   },
   {
     href: "platos-criollos",
     name: "Platos Criollos",
-    icon: UtensilsCrossedIcon
+    icon: UtensilsCrossedIcon,
+    content: [
+      {
+        nombre: "Tequeños de Camarón",
+        descripcion: "10 unidades rellenas de camarón fresco.",
+        ingredientes: ["Masa crujiente", "Camarón fresco", "Queso"],
+        porciones: "Sirve hasta 2 personas",
+        extras: "Incluye guarnición de salsas",
+        precio: 18.0,
+        imagen: "https://www.cocineroperuano.com/images/tequenos.JPG",
+        notas: "Ideal para una entrada ligera"
+      },
+      {
+        nombre: "Lapas Arrebosadas",
+        descripcion: "Lapas crocantes perfectas para compartir.",
+        ingredientes: ["Lapas", "Pan rallado", "Especias secretas"],
+        porciones: "Perfecto para 2-3 personas",
+        extras: "Opción de agregar limón o ají",
+        precio: 35.0,
+        imagen:
+          "https://scontent.fpio1-1.fna.fbcdn.net/v/t39.30808-6/461756636_2491009354431233_6022935226705260346_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE3khxtiAQM80DeFjQShtssr28KI_iT3cKvbwoj-JPdwnGyR3_WCrCA0LeafmbqTVJdBz_D-xWs_Ok7cLycZuJE&_nc_ohc=QnYIV6WYcfUQ7kNvgG0HBun&_nc_zt=23&_nc_ht=scontent.fpio1-1.fna&_nc_gid=A9zu0wCdmJHSp3eQ8CgXyMk&oh=00_AYBWlcHDlgIR9Qes4ruXiecKZv-KAS7y65i-nx_AmO_faQ&oe=675D8AA6",
+        notas: "Crujiente y delicioso"
+      },
+      {
+        nombre: "Milanesa de Pollo",
+        descripcion: "Crujiente milanesa de pollo acompañada de guarniciones.",
+        ingredientes: ["Pollo", "Pan rallado", "Especias"],
+        porciones: "Ideal para 1 persona",
+        extras: "Incluye papas fritas y ensalada",
+        precio: 32.0,
+        imagen:
+          "https://images.mrcook.app/recipe-image/01921f46-e0ae-7cae-80f2-fa527dbab833",
+        notas: "Un clásico siempre bienvenido"
+      },
+      {
+        nombre: "Pollo a la Plancha",
+        descripcion: "Pollo jugoso cocinado a la plancha con acompañamientos.",
+        ingredientes: ["Pollo", "Especias", "Guarniciones"],
+        porciones: "Sirve hasta 1 persona",
+        extras: "Incluye ensalada fresca",
+        precio: 28.0,
+        imagen:
+          "https://www.paulinacocina.net/wp-content/uploads/2023/06/pollo-a-la-plancha-receta-1200x676.jpg",
+        notas: "Opción ligera y saludable"
+      },
+      {
+        nombre: "Chicharrón de Pescado",
+        descripcion: "Pescado fresco frito, servido con salsas.",
+        ingredientes: ["Pescado fresco", "Especias", "Pan rallado"],
+        porciones: "Ideal para 3 personas",
+        extras: "Sirve con salsas de ají o tártara",
+        precio: 32.0,
+        imagen:
+          "https://www.lopesa.com/storage/recetas/December2021/7kJe9TjgEmxBZKcOJFhe.jpg",
+        notas: "Perfecto para compartir"
+      },
+      {
+        nombre: "Ceviche de Pescado",
+        descripcion: "Ceviche clásico con pescado fresco, limón y especias.",
+        ingredientes: ["Pescado fresco", "Cebolla", "Limón"],
+        porciones: "Sirve 2 personas",
+        extras: "Opción de ají adicional",
+        precio: 28.0,
+        imagen: "https://imag.bonviveur.com/ceviche-peruano-de-pescado.jpg",
+        notas: "Refrescante y delicioso"
+      },
+      {
+        nombre: "Trucha Frita",
+        descripcion: "Trucha dorada, acompañada de papas fritas y ensalada.",
+        ingredientes: ["Trucha", "Especias", "Papas fritas", "Ensalada"],
+        porciones: "Perfecto para 2 personas",
+        extras: "Incluye salsa criolla",
+        precio: 35.0,
+        imagen: "https://thumbs.dreamstime.com/b/trucha-frita-10183253.jpg",
+        notas: "Un plato clásico andino"
+      },
+      {
+        nombre: "Pejerrey Frito",
+        descripcion: "Pejerrey crujiente con guarniciones.",
+        ingredientes: ["Pejerrey", "Pan rallado", "Especias"],
+        porciones: "Sirve 2 personas",
+        extras: "Incluye ensalada y papas fritas",
+        precio: 35.0,
+        imagen:
+          "https://scontent.fpio1-1.fna.fbcdn.net/v/t1.6435-9/150183958_1911711492319365_2408194158552961908_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFGKcIGtIe1ykd_V3DWfxyeJQfue-ugXKglB-5766BcqD3GZk6mTtKbUNpV890l2OZwaBqaQ7FCmGc1tDK1SaF1&_nc_ohc=zow4z_XVStUQ7kNvgGkLMj6&_nc_zt=23&_nc_ht=scontent.fpio1-1.fna&_nc_gid=A19gOkpU5FXbgpSc1AtMVzQ&oh=00_AYDE2C-M7vaHIE-IsgZO-qHXy8zf-uR5GCtSgO3y0HwVkQ&oe=677F101B",
+        notas: "Crujiente y sabroso"
+      },
+      {
+        nombre: "Chicharrón de Pollo",
+        descripcion: "Crujiente pollo frito acompañado de papas fritas.",
+        ingredientes: ["Pollo", "Pan rallado", "Especias"],
+        porciones: "Ideal para 2 personas",
+        extras: "Incluye ensalada fresca",
+        precio: 32.0,
+        imagen: "https://i.ytimg.com/vi/vnPdIp-lBT4/maxresdefault.jpg",
+        notas: "Favorito de la casa"
+      }
+    ]
   },
   {
     href: "menu-infantil",
     name: "Menu Infantil",
-    icon: BabyIcon
+    icon: BabyIcon,
+    content: [
+      {
+        nombre: "Chicharrón de Pollo + Helado",
+        descripcion: "Chicharrón de pollo acompañado de helado.",
+        ingredientes: ["Pollo crujiente", "Papas fritas", "Helado"],
+        porciones: "Sirve 1 persona",
+        extras: "Incluye salsa de tomate",
+        precio: 26.0,
+        imagen: ChicharronPollo,
+        notas: "Ideal para los más pequeños"
+      },
+      {
+        nombre: "Chicharrón de Pescado + Helado",
+        descripcion: "Chicharrón de pescado acompañado de helado.",
+        ingredientes: ["Pescado crujiente", "Papas fritas", "Helado"],
+        porciones: "Sirve 1 persona",
+        extras: "Incluye salsa tártara",
+        precio: 26.0,
+        imagen: PescadoChicharronmaspescado,
+        notas: "Favorito de los niños"
+      }
+    ]
   },
   {
     href: "bebidas",
     name: "Bebidas",
-    icon: GlassWaterIcon
+    icon: GlassWaterIcon,
+    content: [
+      {
+        nombre: "Agua (1/2 Litro)",
+        precio: 3.0,
+        descripcion: "Refrescante agua mineral.",
+        notas: "Ideal para calmar la sed.",
+        ingredientes: ["Agua pura", "Minerales naturales"],
+        imagen:
+          "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/tottusPE/30003045_1/w=800,h=800,fit=pad"
+      },
+      {
+        nombre: "Escocesa (1/2 Litro)",
+        precio: 5.5,
+        descripcion: "Gaseosa Escocesa refrescante.",
+        notas: "Perfecta para acompañar comidas.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Saborizantes naturales"],
+        imagen:
+          "https://images.rappi.pe/products/909210414300_lcpknvvrtxqa_270261154192_epackrycvfes_601962_1.png"
+      },
+      {
+        nombre: "Escocesa (1 1/2 Litro)",
+        precio: 12.0,
+        descripcion: "Gaseosa Escocesa en presentación familiar.",
+        notas: "Ideal para compartir en familia.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Saborizantes naturales"],
+        imagen:
+          "https://lh3.googleusercontent.com/proxy/yQS-B3ZjSH6e9LBv4req56RQhqa6aWfL_sH5mEI2wokc_ab_GMwA_-EeVcAbJLyz2qPdJ7PiJF9a5kyIvPxdkglNQ1G56DMwFLSCfaiRBGCMnv-yGM9iyIsIEGLTahvbUfsIW5AHr8HDn9aIq2_TPISeJykdvbt8q0Hnbv4"
+      },
+      {
+        nombre: "Coca Cola (1/2 Litro)",
+        precio: 4.5,
+        descripcion: "Coca Cola clásica.",
+        notas: "El sabor de siempre.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Cafeína"],
+        imagen:
+          "https://pizzarte.pe/cdn/shop/products/coca-cola-500ml_800x.jpg?v=1589253168"
+      },
+      {
+        nombre: "Coca Cola (1 Litro)",
+        precio: 8.0,
+        descripcion: "Coca Cola en tamaño ideal para compartir.",
+        notas: "Perfecta para una comida.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Cafeína"],
+        imagen:
+          "https://lacasadelahumita.com/wp-content/uploads/2024/10/COCACOLA-1-L.jpg"
+      },
+      {
+        nombre: "Coca Cola (1 1/2 Litro)",
+        precio: 11.0,
+        descripcion: "Coca Cola para toda la familia.",
+        notas: "Un clásico para todos.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Cafeína"],
+        imagen:
+          "https://pizzarte.pe/cdn/shop/products/coca-cola-1500ml_grande.jpg?v=1603241096"
+      },
+      {
+        nombre: "Coca Cola (2 Litros)",
+        precio: 14.0,
+        descripcion: "Coca Cola en su tamaño más grande.",
+        notas: "Para grandes momentos.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Cafeína"],
+        imagen:
+          "https://almacenfamily.com/productos/7790895000218-411-coca-cola-retornable-2-lt-5e8beaa3ddfb9.jpg"
+      },
+      {
+        nombre: "Inca Kola (1/2 Litro)",
+        precio: 4.5,
+        descripcion: "Inca Kola clásica.",
+        notas: "El sabor de la peruanidad.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Saborizantes naturales"],
+        imagen:
+          "https://pizzarte.pe/cdn/shop/products/inca-kola-500ml_800x.jpg?v=1589253247"
+      },
+      {
+        nombre: "Inca Kola (1 Litro)",
+        precio: 8.0,
+        descripcion: "Inca Kola en tamaño mediano.",
+        notas: "Perfecta para compartir.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Saborizantes naturales"],
+        imagen:
+          "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/tottusPE/41653173_2/w=800,h=800,fit=pad"
+      },
+      {
+        nombre: "Inca Kola (1 1/2 Litro)",
+        precio: 11.0,
+        descripcion: "Inca Kola familiar.",
+        notas: "Perfecta para comidas familiares.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Saborizantes naturales"],
+        imagen:
+          "https://hokkaidosushi.cl/108-medium_default/inka-kola-1-litro-12.jpg"
+      },
+      {
+        nombre: "Inca Kola (2 Litros)",
+        precio: 14.0,
+        descripcion: "Inca Kola en su presentación más grande.",
+        notas: "El sabor que une a todos.",
+        ingredientes: ["Agua carbonatada", "Azúcar", "Saborizantes naturales"],
+        imagen:
+          "https://minimarketmajaz.com/wp-content/uploads/2021/05/inca-kola-retornable-2L.jpg"
+      },
+      {
+        nombre: "Chicha Morada (1 Litro)",
+        precio: 10.0,
+        descripcion: "Chicha morada fresca y natural.",
+        notas: "El complemento perfecto para cualquier comida.",
+        ingredientes: ["Maíz morado", "Frutas", "Especias"],
+        imagen:
+          "https://express.donangelo.pe/wp-content/uploads/2022/04/WhatsApp-Image-2022-05-28-at-2.03.41-PM-2.jpeg"
+      },
+      {
+        nombre: "Limonada Frozen (1 Litro)",
+        precio: 11.0,
+        descripcion: "Limonada frozen refrescante.",
+        notas: "Disponible solo sábados y domingos.",
+        ingredientes: ["Limón fresco", "Hielo", "Azúcar"],
+        imagen:
+          "https://rinconcitochapin.com.gt/wp-content/uploads/2021/08/IMG-20211130-WA0020.jpg"
+      },
+      {
+        nombre: "Maracuyá (1 Litro)",
+        precio: 15.0,
+        descripcion: "Jugo de maracuyá natural.",
+        notas: "Solo disponible sábados y domingos.",
+        ingredientes: ["Maracuyá", "Azúcar", "Agua"],
+        imagen:
+          "https://chifaperuanomadrid.com/wp-content/uploads/2020/04/MARACUYA-LITRO.png"
+      },
+      {
+        nombre: "Arequipeña (620 ml)",
+        precio: 9.0,
+        descripcion: "Cerveza Arequipeña, refrescante y ligera.",
+        notas: "Perfecta para cualquier ocasión.",
+        ingredientes: ["Agua", "Malta", "Lúpulo"],
+        imagen:
+          "https://el-sur-mayoristas.com/wp-content/uploads/2023/11/2996670.jpg"
+      },
+      {
+        nombre: "Pilsen Callao (620 ml)",
+        precio: 10.0,
+        descripcion: "Cerveza Pilsen Callao clásica.",
+        notas: "Un sabor que nunca falla.",
+        ingredientes: ["Agua", "Malta", "Lúpulo"],
+        imagen:
+          "https://www.finvian.com/vista/imagen/producto/fa_1657280833336_g65v2x1rxhzgv5j.jpg"
+      },
+      {
+        nombre: "Cusqueña Trigo (620 ml)",
+        precio: 11.0,
+        descripcion: "Cerveza Cusqueña de trigo, suave y aromática.",
+        notas: "Ideal para disfrutar lentamente.",
+        ingredientes: ["Agua", "Malta de trigo", "Lúpulo"],
+        imagen:
+          "https://aceleralastatic.nyc3.cdn.digitaloceanspaces.com/files/uploads/1499/1677172842-10-cusquena-retornable-trigo-620ml-jpg.jpg"
+      },
+      {
+        nombre: "Cusqueña Negra (620 ml)",
+        precio: 11.0,
+        descripcion: "Cerveza Cusqueña negra, intensa y robusta.",
+        notas: "Perfecta para acompañar carnes.",
+        ingredientes: ["Agua", "Malta tostada", "Lúpulo"],
+        imagen:
+          "https://corporacionliderperu.com/41314-large_default/cerveza-cusquena-malta-bt-x-620-ml.jpg"
+      },
+
+      {
+        nombre: "Vino Mañejo",
+        precio: 30.0,
+        descripcion: "Vino Mañejo, ideal para maridar con carnes.",
+        notas: "Un vino suave y equilibrado.",
+        ingredientes: ["Uvas seleccionadas", "Fermentación natural"],
+        imagen:
+          "https://cdn.shopify.com/s/files/1/0402/2475/1766/products/VINOTINTOCHATEAUDUVALD_OR750MLLACASTELLANASADECV_300x.jpg?v=1692735383"
+      }
+    ]
   },
   {
     href: "cocktails",
     name: "Cocktails",
-    icon: MartiniIcon
+    icon: MartiniIcon,
+    content: [
+      {
+        nombre: "Pisco Sour",
+        precio: 18.0,
+        descripcion: "Clásico cóctel peruano elaborado con pisco y limón.",
+        notas: "Disponible solo sábados, domingos y feriados.",
+        ingredientes: [
+          "Pisco",
+          "Jugo de limón",
+          "Clara de huevo",
+          "Jarabe de goma"
+        ],
+        imagen:
+          "https://cdn.recetasderechupete.com/wp-content/uploads/2020/03/Pisco-Sour.jpg"
+      },
+      {
+        nombre: "Algarrobina",
+        precio: 18.0,
+        descripcion: "Cóctel dulce y cremoso con base de algarrobina.",
+        notas: "Ideal para acompañar postres.",
+        ingredientes: ["Pisco", "Leche evaporada", "Algarrobina", "Hielo"],
+        imagen:
+          "https://cdn0.recetasgratis.net/es/posts/2/9/1/coctel_de_algarrobina_77192_600_square.jpg"
+      },
+      {
+        nombre: "Mojito Clásico",
+        precio: 17.0,
+        descripcion: "Refrescante cóctel de menta, limón y ron.",
+        notas: "Perfecto para disfrutar en climas cálidos.",
+        ingredientes: [
+          "Ron blanco",
+          "Hojas de menta",
+          "Jugo de limón",
+          "Azúcar"
+        ],
+        imagen:
+          "https://corkframes.com/cdn/shop/articles/the-traditional-mojito-recipe-a-refreshing-cuban-classic-954834.jpg?v=1722032218"
+      },
+      {
+        nombre: "Mojito Maracuyá",
+        precio: 18.0,
+        descripcion: "Una variante tropical del clásico mojito.",
+        notas: "Dulce y refrescante.",
+        ingredientes: ["Ron blanco", "Maracuyá", "Hojas de menta", "Azúcar"],
+        imagen:
+          "https://cursosdecocina.cl/cdn/shop/articles/MOJITO-MARACUYA-BLGOG_2048x.progressive.jpg?v=1621490847"
+      },
+      {
+        nombre: "Piña Colada",
+        precio: 19.0,
+        descripcion: "Cóctel cremoso y tropical de piña y coco.",
+        notas: "Una experiencia caribeña.",
+        ingredientes: ["Ron blanco", "Crema de coco", "Jugo de piña", "Hielo"],
+        imagen: "https://imag.bonviveur.com/pina-colada.jpg"
+      },
+      {
+        nombre: "Daiquiri",
+        precio: 17.0,
+        descripcion: "Cóctel clásico de ron con un toque cítrico.",
+        notas: "Perfecto para una tarde relajante.",
+        ingredientes: ["Ron blanco", "Jugo de limón", "Azúcar"],
+        imagen:
+          "https://www.tucocteleria.com/wp-content/uploads/2018/04/Daiquiri.jpg"
+      }
+    ]
   }
 ] as const
 
-const { name, icon: Icon } = data.find(data => data.href === category)!
+const {
+  name,
+  icon: Icon,
+  content,
+  href
+} = data.find(data => data.href === category)!
 ---
 
 <Layout>
-  <section class="my-36 flex flex-col items-center justify-between">
+  <section
+    class="mt-36 mb-20 flex flex-col items-center justify-between gap-10"
+  >
     <div
-      transition:name={name}
+      transition:name={href}
       class="aspect-square flex justify-center p-10 items-center bg-secondary rounded-full shadow-md"
     >
       <Icon className="size-48" />
@@ -65,4 +550,72 @@ const { name, icon: Icon } = data.find(data => data.href === category)!
       {name}
     </h1>
   </section>
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="space-y-6">
+      {
+        content.map(
+          ({ nombre, descripcion, imagen, ingredientes, notas, precio }) => (
+            <div class="menu-card bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="menu-image-container">
+                <Image
+                  src={imagen}
+                  alt={nombre}
+                  class="menu-image"
+                  width={400}
+                  height={400}
+                />
+              </div>
+              <div class="p-4 flex-1 space-y-3">
+                <h3 class="text-xl font-bold text-black">{nombre}</h3>
+                <p class="text-gray-600 mt-1">{descripcion}</p>
+                <ul class="text-gray-600 mt-1 space-y-1">
+                  {ingredientes.map(ingrediente => (
+                    <li>🌟 {ingrediente}</li>
+                  ))}
+                </ul>
+                <div class="mt-3 flex justify-between items-center">
+                  <span class="px-4 py-2 rounded-full bg-gradient-to-r from-[#FDBA72] to-[#FDC080] text-white text-lg font-semibold">
+                    S/ {precio.toFixed(2)}
+                  </span>
+                  <span class="text-sm text-gray-500 italic">{notas}</span>
+                </div>
+              </div>
+            </div>
+          )
+        )
+      }
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .menu-image-container {
+    width: 100%;
+    max-width: 300px; /* Ancho máximo */
+    aspect-ratio: 4/3; /* Relación de aspecto fija */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .menu-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .menu-card {
+      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    }
+    .menu-image-container {
+      max-width: 100%; /* Imagen ocupa el ancho completo */
+    }
+  }
+</style>
